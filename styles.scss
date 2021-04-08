@@ -1,3 +1,5 @@
+// method 1: line number
+/*
 .container {
   display: grid;
   grid-template-rows: 10rem 15rem 15rem 15rem 10rem;
@@ -31,3 +33,44 @@
     grid-column: 1 / -1;
   }
 }
+
+*/
+
+// method 2: line name
+
+.container {
+  display: grid;
+  grid-template-rows: [ header-start ] 10rem [header-end box-start] 15rem [box-end main-start] 15rem 15rem [main-end footer-start] 10rem [footer-end];
+  grid-template-columns: repeat(3, [col-start] 15rem [col-end]) 10rem [grid-end];
+  column-gap: 2rem;
+  row-gap: 2rem;
+  margin: 3rem auto;
+}
+
+.item {
+  padding: 5rem;
+  background-color: grey;
+  color: white;
+
+  &--1 {
+    grid-column: col-start 1 / grid-end;
+    background-color: blue;
+  }
+
+  &--5 {
+    grid-row: box-start / main-end;
+    grid-column: col-end 3 / grid-end;
+  }
+
+  &--6 {
+    grid-row: 3 / 5;
+    grid-column: col-start 1   / col-end 3;
+  }
+
+  &--7{
+    grid-column: col-start 1  / grid-end;
+  }
+}
+
+
+
