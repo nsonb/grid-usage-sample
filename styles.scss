@@ -37,7 +37,7 @@
 */
 
 // method 2: line name
-
+/*
 .container {
   display: grid;
   grid-template-rows: [ header-start ] 10rem [header-end box-start] 15rem [box-end main-start] 15rem 15rem [main-end footer-start] 10rem [footer-end];
@@ -71,6 +71,57 @@
     grid-column: col-start 1  / grid-end;
   }
 }
+*/
 
+// method 3: name area
+.container {
+  display: grid;
+  grid-template-rows: [ header-start ] 10rem [header-end box-start] 15rem [box-end main-start] 15rem 15rem [main-end footer-start] 10rem [footer-end];
+  grid-template-columns: repeat(3, [col-start] 15rem [col-end]) 10rem [grid-end];
+  column-gap: 2rem;
+  row-gap: 2rem;
+  margin: 3rem auto;
+
+  grid-template-areas:  'head head head .'
+                        'box1 box2 box3 side'
+                        'main main main side'
+                        'main main main side'
+                        'foot foot foot foot';
+}
+
+.item {
+  padding: 5rem;
+  background-color: grey;
+  color: white;
+
+  &--1 {
+    grid-area: head;
+    background-color: blue;
+  }
+
+  &--2 {
+    grid-area: box1;
+  }
+  &--3 {
+    grid-area: box2;
+  }
+  &--4 {
+    grid-area: box3;
+  }
+
+  &--5 {
+    grid-row: box-start / main-end;
+    grid-area: side;
+  }
+
+  &--6 {
+    grid-row: 3 / 5;
+    grid-area: main;
+  }
+
+  &--7{
+    grid-area: foot;
+  }
+}
 
 
