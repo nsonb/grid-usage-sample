@@ -1,3 +1,9 @@
 /node_modules
 /dist
 /.cache
+
+/sampling-2/.cache
+/sampling-2//dist
+
+/sampling-min-max/dist
+/sampling-min-max/.cache
